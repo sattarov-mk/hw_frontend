@@ -12,6 +12,10 @@
       font-family: Arial, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth; /* плавный скролл к секциям */
+    }
+
     body {
       background: #f4f4f9;
       color: #333;
@@ -23,6 +27,9 @@
       color: #fff;
       padding: 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav {
@@ -34,32 +41,50 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bfff;
     }
 
     .container {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       padding: 2rem;
     }
 
     section {
       background: #fff;
       padding: 20px;
-      margin: 10px;
-      flex: 1;
+      margin: 20px 0;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     section h2 {
       margin-bottom: 15px;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #444;
     }
 
-    /* Чтобы колонки выглядели красиво */
-    .container > section:not(:last-child) {
-      margin-right: 20px;
+    section p {
+      margin-bottom: 10px;
+    }
+
+    /* Пример контента для Partners */
+    .partner {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .partner img {
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+      border-radius: 50%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -76,19 +101,31 @@
   <main class="container">
     <section id="about">
       <h2>About Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-         Curabitur feugiat lectus ut augue fermentum, at tincidunt ipsum luctus.</p>
+      <p>Welcome to our company! We are passionate about creating innovative tech solutions that make a difference.</p>
+      <p>Our mission is to provide reliable and cutting-edge products to our clients worldwide. Our team consists of experts in software development, AI, and blockchain technology.</p>
     </section>
 
     <section id="tech">
       <h2>Tech & Projects</h2>
-      <p><strong>ETF Tokens on Solana</strong> - description goes here...</p>
-      <p><strong>Reporting AI Models</strong> - description goes here...</p>
+      <p><strong>ETF Tokens on Solana:</strong> We develop tokenized ETFs on the Solana blockchain, providing fast and secure trading solutions.</p>
+      <p><strong>AI Reporting Models:</strong> Our AI tools help businesses analyze data efficiently, generating insights automatically.</p>
+      <p><strong>Web & Mobile Apps:</strong> We create responsive apps for both web and mobile platforms with seamless user experience.</p>
     </section>
 
     <section id="partners">
       <h2>Partners</h2>
-      <p>Here we can showcase partners with logos and descriptions.</p>
+      <div class="partner">
+        <img src="https://via.placeholder.com/60" alt="Partner Logo">
+        <p>Partner A - A leading fintech company collaborating on blockchain solutions.</p>
+      </div>
+      <div class="partner">
+        <img src="https://via.placeholder.com/60" alt="Partner Logo">
+        <p>Partner B - Innovative AI company assisting in advanced analytics projects.</p>
+      </div>
+      <div class="partner">
+        <img src="https://via.placeholder.com/60" alt="Partner Logo">
+        <p>Partner C - Web development agency supporting our frontend and mobile apps.</p>
+      </div>
     </section>
   </main>
 </body>
