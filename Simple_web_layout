@@ -3,37 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Website Layout</title>
+  <title>Enhanced Website</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
     }
 
     html {
-      scroll-behavior: smooth; /* плавный скролл к секциям */
+      scroll-behavior: smooth;
     }
 
     body {
       background: #f4f4f9;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     header {
       background: #222;
       color: #fff;
-      padding: 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      display: inline-block;
+      font-size: 1.8rem;
     }
 
     nav {
-      margin-top: 10px;
+      display: inline-block;
+      float: right;
     }
 
     nav a {
@@ -41,92 +47,175 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      position: relative;
       transition: color 0.3s;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: #00bfff;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #00bfff;
+      left: 0;
+      bottom: -5px;
+    }
+
+    main {
       padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     section {
       background: #fff;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     section h2 {
-      margin-bottom: 15px;
-      font-size: 1.6rem;
+      margin-bottom: 20px;
+      font-size: 2rem;
       color: #444;
     }
 
     section p {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
     }
 
-    /* Пример контента для Partners */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #00bfff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #0077aa;
+    }
+
     .partner {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .partner img {
-      width: 60px;
-      height: 60px;
-      margin-right: 15px;
+      width: 70px;
+      height: 70px;
+      margin-right: 20px;
       border-radius: 50%;
       object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        float: none;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 10px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>My Website</h1>
+    <h1>My Enhanced Website</h1>
     <nav>
-      <a href="#about">About Us</a>
+      <a href="#about" class="active">About Us</a>
       <a href="#tech">Tech/Projects</a>
       <a href="#partners">Partners</a>
     </nav>
   </header>
 
-  <main class="container">
+  <main>
+    <!-- About Us -->
     <section id="about">
       <h2>About Us</h2>
-      <p>Welcome to our company! We are passionate about creating innovative tech solutions that make a difference.</p>
-      <p>Our mission is to provide reliable and cutting-edge products to our clients worldwide. Our team consists of experts in software development, AI, and blockchain technology.</p>
+      <p>Welcome to our company! We are a passionate team of innovators dedicated to creating impactful solutions. Since our founding, we have focused on combining technology, creativity, and user experience to build products that truly matter.</p>
+      <p>Our mission is to deliver reliable and advanced technology solutions, whether in software development, artificial intelligence, blockchain, or web and mobile platforms. We aim to empower businesses and individuals to achieve more.</p>
+      <p>Over the years, we have grown from a small startup to a dynamic organization with a global presence. Our team includes experts in software engineering, AI research, blockchain development, and project management. Each member brings a unique perspective, allowing us to solve complex problems efficiently.</p>
+      <a href="#tech" class="button">Explore Our Projects</a>
     </section>
 
+    <!-- Tech & Projects -->
     <section id="tech">
       <h2>Tech & Projects</h2>
-      <p><strong>ETF Tokens on Solana:</strong> We develop tokenized ETFs on the Solana blockchain, providing fast and secure trading solutions.</p>
-      <p><strong>AI Reporting Models:</strong> Our AI tools help businesses analyze data efficiently, generating insights automatically.</p>
-      <p><strong>Web & Mobile Apps:</strong> We create responsive apps for both web and mobile platforms with seamless user experience.</p>
+      <p><strong>ETF Tokens on Solana:</strong> We develop tokenized ETFs on the Solana blockchain, offering users fast, secure, and transparent trading solutions. Our platform leverages smart contracts for automation and efficiency.</p>
+      <p><strong>AI Reporting Models:</strong> Our advanced AI models provide intelligent reporting for businesses. They analyze data, detect trends, and generate actionable insights, helping companies make data-driven decisions faster.</p>
+      <p><strong>Web & Mobile Applications:</strong> We build responsive, intuitive web and mobile applications. Our focus on user experience ensures that apps are easy to navigate, visually appealing, and performant on all devices.</p>
+      <p><strong>Blockchain Integration:</strong> Beyond Solana, we integrate blockchain solutions to improve transparency and security in finance, supply chain, and digital identity systems. Our solutions are scalable and maintainable for enterprise use.</p>
+      <a href="#partners" class="button">Meet Our Partners</a>
     </section>
 
+    <!-- Partners -->
     <section id="partners">
       <h2>Partners</h2>
       <div class="partner">
-        <img src="https://via.placeholder.com/60" alt="Partner Logo">
-        <p>Partner A - A leading fintech company collaborating on blockchain solutions.</p>
+        <img src="https://via.placeholder.com/70" alt="Partner A">
+        <p><strong>Partner A:</strong> A leading fintech company collaborating with us on blockchain and digital finance solutions. Their expertise ensures high performance and security in our projects.</p>
       </div>
       <div class="partner">
-        <img src="https://via.placeholder.com/60" alt="Partner Logo">
-        <p>Partner B - Innovative AI company assisting in advanced analytics projects.</p>
+        <img src="https://via.placeholder.com/70" alt="Partner B">
+        <p><strong>Partner B:</strong> Innovative AI company assisting in developing reporting models and data analytics platforms. Their AI research enhances the intelligence of our systems.</p>
       </div>
       <div class="partner">
-        <img src="https://via.placeholder.com/60" alt="Partner Logo">
-        <p>Partner C - Web development agency supporting our frontend and mobile apps.</p>
+        <img src="https://via.placeholder.com/70" alt="Partner C">
+        <p><strong>Partner C:</strong> Web development agency supporting our frontend and mobile app projects. Their designers and developers help bring our concepts to life with elegant, responsive designs.</p>
       </div>
+      <div class="partner">
+        <img src="https://via.placeholder.com/70" alt="Partner D">
+        <p><strong>Partner D:</strong> Cloud infrastructure partner providing scalable hosting, monitoring, and DevOps solutions. This ensures our applications are always fast, secure, and reliable.</p>
+      </div>
+      <a href="#about" class="button">Back to Top</a>
     </section>
   </main>
+
+  <script>
+    // Active link highlighting based on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
