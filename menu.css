@@ -1,0 +1,105 @@
+
+    :root {
+      --bg: #0f0a05;
+      --accent: #322308;
+      --text: #f5f0e8;
+      --card: rgba(30, 25, 20, 0.6);
+      --blur: 20px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #fdf9f4; --text: #2b1f16; --card: rgba(255,250,240,0.8); --accent: #a67c52; }
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg) url('img/bg.jpg') ;
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 1rem;
+    }
+
+    .overlay { position:fixed; inset:0; background: rgba(0,0,0,0.4); pointer-events:none; }
+
+    .container { max-width: 520px; margin: 0 auto; position:relative; z-index:2; }
+
+   
+    header {
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgb(35, 19, 3);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    --accent: #774616;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+    .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--accent); }
+    .table-info { background: var(--card); backdrop-filter: blur(var(--blur)); padding: 0.5rem 1rem; border-radius: 50px; font-size: 1.1rem; }
+
+    .btn { padding: 0.7rem 1.2rem; background: var(--accent); color: #000; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; }
+
+    .breadcrumb {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 1rem 0 2rem;
+      font-family: 'Playfair Display', serif;
+      
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .category-card, .item-card {
+      background: var(--card);
+      backdrop-filter: blur(var(--blur));
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid rgb(211, 116, 6);
+      position: relative;
+      
+    }
+    .category-card:hover, .item-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+    .category-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.8rem; }
+    .item-card h3 { margin: 0.5rem 0; font-size: 1.2rem; }
+    .desc { font-size: 0.9rem; opacity: 0.8; margin: 0.5rem 0; }
+    .price { font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-top: 0.8rem; }
+
+    .popular { border: 2px solid var(--accent) !important; }
+    .badge {
+      position: absolute;
+      top: -10px; right: 10px;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      
+    }
+
+    .back { background: rgb(224, 209, 112); color: var(--text); }
+
+    #itemsSection { display: none; }
