@@ -1,0 +1,14 @@
+.expenses { 
+    padding: 1rem; 
+    width: 50rem; 
+    margin: 2rem auto; 
+    background-color: rgb(22, 22, 21); 
+    max-width: 95%; 
+}
+
+.expenses__fallback {
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+}
